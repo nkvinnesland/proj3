@@ -16,7 +16,6 @@ import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import ai.peoplecode.OpenAIConversation;
 
-
 @PageTitle("My View")
 @Menu(icon = "line-awesome/svg/pencil-ruler-solid.svg", order = 0)
 @Route("")
@@ -35,7 +34,9 @@ public class MyViewView extends Composite<VerticalLayout> {
     }
 
     public MyViewView() {
+        String apiKey = System.getenv("API_KEY");
 
+        // Retrieve the API key from the .env file
         conversation = new OpenAIConversation(apiKey, "gpt-4o-mini");
         H1 h1 = new H1();
         H4 h4 = new H4();
